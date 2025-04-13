@@ -1,418 +1,594 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gadisa Teka(Ilma Ayu)</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&family=Roboto&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-    crossorigin="anonymous" />
-  <link rel="stylesheet" href="./css/style.css" />
+  <meta name="description" content="Gadisa Teka - Software Engineer Portfolio showcasing full stack development projects and skills." />
+  <meta name="keywords" content="software engineer, full stack developer, portfolio, Spring Boot, React, Django, WSO2" />
+  <meta property="og:title" content="Gadisa Teka | Software Engineer Portfolio" />
+  <meta property="og:description" content="Explore Gadisa Teka's portfolio featuring projects in full stack development, API integration, and banking solutions." />
+  <meta property="og:image" content="./images/gado.png" />
+  <title>Gadisa Teka | Software Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/recharts/2.12.7/recharts.umd.js"></script>
   <link rel="shortcut icon" href="./images/icon.png" type="icon">
+  <style>
+    /* Glassmorphism Effect */
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    }
+    /* Gradient Text */
+    .gradient-text {
+      background: linear-gradient(to right, #7C3AED, #60A5FA);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    /* Floating Animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-15px) rotate(5deg); }
+    }
+    .float {
+      animation: float 4s ease-in-out infinite;
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1F1F1F;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #7C3AED;
+      border-radius: 4px;
+    }
+    /* Hover Glow */
+    .hover-glow:hover {
+      box-shadow: 0 0 20px rgba(124, 58, 237, 0.5);
+    }
+    /* Tech Tags */
+    .text-yellow-400 {
+      background: rgba(124, 58, 237, 0.2);
+      color: #7C3AED;
+      border: 1px solid #7C3AED;
+      border-radius: 9999px;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.875rem;
+    }
+    /* Timeline */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      background: #7C3AED;
+      border-radius: 50%;
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 12px;
+      width: 2px;
+      height: calc(100% - 12px);
+      background: #7C3AED;
+    }
+    /* Skills Section Enhancements */
+    .skills-grid {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .skills-grid:hover {
+      transform: translateY(-4px);
+    }
+    .skill-item {
+      backdrop-filter: blur(8px);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    .skill-item:hover {
+      transform: scale(1.05);
+    }
+    /* Ensure chart ticks and labels are readable */
+    .recharts-text {
+      fill: #D1D5DB !important;
+      font-size: 0.9rem;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .skills-grid {
+        padding: 1rem;
+      }
+      .recharts-text {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
 </head>
-
-<body>
-  <!-- navbar -->
-  <nav class="nav" id="id" id="home">
-    <div class="nav-center">
-      <!-- logo -->
-
-      <div class="nav-header">
-        <button class="nav-btn" id="nav-btn">
+<body class="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100 font-inter">
+  <!-- Navbar -->
+  <nav class="glass sticky top-0 z-50 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-12">
+        <h1 class="text-2xl font-bold gradient-text">Gadisa Teka</h1>
+        <div class="hidden md:flex space-x-8 items-center">
+          <a href="#home" class="hover:text-purple-400 transition">Home</a>
+          <a href="#about" class="hover:text-purple-400 transition">About</a>
+          <a href="#projects" class="hover:text-purple-400 transition">Projects</a>
+          <a href="#skills" class="hover:text-purple-400 transition">Skills</a>
+          <a href="#contact" class="hover:text-purple-400 transition">Contact</a>
+        </div>
+        <button id="nav-btn" class="md:hidden text-2xl text-purple-400">
           <i class="fas fa-bars"></i>
         </button>
       </div>
-
-      <!-- logo -->
-
-      <!-- nav-links -->
-      <div>
-        <ul class="nav-links">
-          <li>
-            <a href="#index">home</a>
-          </li>
-          <li>
-            <a href="#about">about</a>
-          </li>
-          <li>
-            <a href="#projects">projects</a>
-          </li>
-          <li>
-            <a href="#contact">contact</a>
-          </li>
-        </ul>
-      </div>
-      <!-- nav-links -->
     </div>
   </nav>
-  <!-- navbar -->
-  <!-- sidebar -->
-  <aside class="sidebar" id="sidebar">
-    <div>
-      <button class="close-btn" id="close-btn">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="fixed inset-y-0 left-0 w-64 glass transform -translate-x-full transition-transform duration-300 md:hidden z-50">
+    <div class="p-6">
+      <button id="close-btn" class="text-2xl text-purple-400">
         <i class="fas fa-times"></i>
       </button>
-
-      <!-- nav-links -->
-
-      <ul class="sidebar-links">
-        <li>
-          <a href="#index" onclick="getElementById('close-btn').click()">home</a>
-        </li>
-        <li>
-          <a href="#about" onclick="getElementById('close-btn').click()">about</a>
-        </li>
-        <li>
-          <a href="#projects" onclick="getElementById('close-btn').click()">projects</a>
-        </li>
-        <li>
-          <a href="#contact" onclick="getElementById('close-btn').click()">contact</a>
-        </li>
+      <ul class="mt-8 space-y-6">
+        <li><a href="#home" class="text-lg hover:text-purple-400 transition">Home</a></li>
+        <li><a href="#about" class="text-lg hover:text-purple-400 transition">About</a></li>
+        <li><a href="#projects" class="text-lg hover:text-purple-400 transition">Projects</a></li>
+        <li><a href="#skills" class="text-lg hover:text-purple-400 transition">Skills</a></li>
+        <li><a href="#contact" class="text-lg hover:text-purple-400 transition">Contact</a></li>
       </ul>
-
-      <!-- nav-links -->
-
-      <!-- social links -->
-
-      <ul class="social-icons">
-        <li>
-          <a href="https://twitter.com/ilma8ayu" target="_blank" rel="noopener noreferrer" class="social-icon">
-            <i class="fab fa-twitter"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/gadisa-t-b7879519b/" target="_blank" rel="noopener noreferrer"
-            class="social-icon">
-            <i class="fab fa-linkedin"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/hinsoo12" target="_blank" rel="noopener noreferrer" class="social-icon">
-            <i class="fab fa-github"></i>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/ilma8ayu/" target="_blank" rel="noopener noreferrer"
-            class="social-icon">
-            <i class="fab fa-instagram"></i>
-          </a>
-        </li>
-      </ul>
-
-      <!-- social-links -->
     </div>
   </aside>
-  <!-- sidebar -->
-  <!-- header -->
-  <header class="hero">
-    <div class="section-center hero-center">
-      <article class="hero-info">
-        <div class="underline"></div>
-        <h1>I'm Gadisa Teka</h1>
-        <h4>Full Stack Web Developer</h4>
-        <a href="#contact" class="btn hero-btn">Contact me</a>
-        <!-- social icons -->
-        <ul class="social-icons hero-icons">
-          <li>
-            <a href="https://twitter.com/ilma8ayu" target="_blank" rel="noopener noreferrer" class="social-icon">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/gadisa-t-b7879519b/" target="_blank" rel="noopener noreferrer"
-              class="social-icon">
-              <i class="fab fa-linkedin"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://github.com/hinsoo12" target="_blank" rel="noopener noreferrer" class="social-icon">
-              <i class="fab fa-github"></i>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/ilma8ayu" target="_blank" rel="noopener noreferrer"
-              class="social-icon">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </li>
-        </ul>
-      </article>
-      <article class="hero-img">
-        <img src="./images/gado_2.png" class="hero-photo" loading="lazy" alt="garv nanwani" />
-      </article>
+
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="w-80 h-80 bg-purple-500 opacity-10 rounded-full blur-3xl absolute top-20 left-20 float"></div>
+      <div class="w-80 h-80 bg-blue-500 opacity-10 rounded-full blur-3xl absolute bottom-20 right-20 float" style="animation-delay: 1.5s;"></div>
+      <div class="w-60 h-60 bg-purple-400 opacity-15 rounded-full blur-2xl absolute top-1/2 left-1/3 float" style="animation-delay: 0.5s;"></div>
     </div>
-  </header>
-  <!-- end of header -->
-  <!-- about -->
-  <section class="section about" id="about">
-    <div class="section-center about-center">
-      <!-- about img -->
-      <article class="about-img">
-        <img src="./images/gado.png" class="hero-photo" loading="lazy" alt="garv nanwani" />
-      </article>
-      <!-- about info -->
-      <article class="about-info">
-        <!-- section title -->
-        <div class="section-title about-title">
-          <h2>about</h2>
-          <div class="underline"></div>
-        </div>
-        <!--end of section title -->
-        <p>
-          Hey, My name is Gadisa Teka and currently I am working as Associate Software Engineer at Awash Bank,
-          Addis Ababa.
-        </p>
-        <p>
-          I have been coding for around more than 2 years now. I love to design websites and build full stack applications.
-        </p>
-          <a href="#connect" class="btn">Connect with me</a>
-      </article>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text">Hi, I'm Gadisa Teka</h1>
+      <p class="text-xl md:text-3xl mb-8">
+        <span id="typed" class="text-gray-300"></span>
+      </p>
+      <a href="#contact" class="bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition hover-glow">Hire Me</a>
     </div>
   </section>
-  <!-- end of about -->
-  <!-- projects -->
-  <section class="section" id="projects">
-    <!-- section title -->
-    <div class="section-title">
-      <h2 class="section-primary">Projects</h2>
-      <div class="underline"></div>
-    </div>
-    <!--end of section title -->
-    <div class="section-center">
-      <div class="card-list">
 
-        <div class="project-card">
-            <div class="project-img">
-              <img src="./projects/project-5.jpg" loading="lazy" alt="weather-app project">
+  <!-- About -->
+  <section id="about" class="py-24 section-animate">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-4 gradient-text">About Me</h2>
+      <p class="text-center text-gray-400 mb-12">A passionate software engineer with a proven track record in full stack development</p>
+      <div class="glass p-10 rounded-2xl hover-glow">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <img src="./images/gado.png" alt="Gadisa Teka" class="w-64 h-64 rounded-full shadow-lg object-cover float" loading="lazy">
+          <div class="flex-1">
+            <p class="mb-6 text-lg">I'm Gadisa Teka, an Associate Software Engineer at Awash Bank in Addis Ababa with over 2 years of experience in full stack development. I specialize in building scalable, secure web applications using technologies like Spring Boot, React, Django, and WSO2.</p>
+            <h3 class="text-xl font-semibold mb-4 gradient-text">Experience</h3>
+            <div class="relative pl-6">
+              <div class="timeline-item relative pb-6">
+                <div class="ml-6">
+                  <h4 class="font-semibold">Associate Software Engineer, Awash Bank</h4>
+                  <p class="text-gray-400 mb-2">August 2022 - Present</p>
+                  <ul class="list-disc list-inside text-gray-300">
+                    <li>Developed and maintained banking APIs for payment integration, remittance, and bill payments using WSO2 and Spring Boot.</li>
+                    <li>Designed and developed responsive WordPress websites using Elementor, enhancing user engagement and online presence.</li>
+                    <li>Built SaaS, improving operational efficiency by 25%.</li>
+                    <li>Collaborated with cross-functional teams to deliver secure, user-centric solutions.</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-            <div>
-              <h2>Eshal Foreign Employment Agency</h2>
-              <h3>Status - In Progress</h3>
-              <div class="title">Tech Used - Django, HTML5, CSS, JavaScript and Bootstrap 4</div>
-            </div>
-            <div class="colorband"></div>
-            <div class="desc">Foreign Employment Agency landing page 
-            </div>
-            <div class="actions">
-              <a href="https://eshal-agency.vercel.app/" target="_blank" rel="noopener noreferrer">
-                <button>
-                  <span>
-                    <i class="far fa-window-restore"></i>
-                    <span>
-                      Live Site
-                    </span>
-                  </span>
-                </button>
-              </a>
-              <a href="https://github.com/hinsoo12/Eshal-Agency" target="_blank" rel="noopener noreferrer">
-                <button>
-                  <span>
-                    <i class="fab fa-github"></i>
-                    <span>
-                      Repo Link
-                    </span>
-                  </span>
-                </button>
-              </a>
-            </div>
-          </div>
-
-
-        <div class="project-card">
-          <div class="project-img">
-            <img src="./projects/project-1.jpg" loading="lazy" alt="blog project">
-          </div>
-          <div>
-            <h2>Health Care - Blogging Site</h2>
-            <h3>Status - Finished</h3>
-            <div class="title">Tech Used - Wordpress </div>
-          </div>
-          <div class="colorband"></div>
-          <div class="desc">Website where I develop and host for my client using Wordpress Elementor.</div>
-          <div class="actions">
-            <a href="https://drnafyad.com/" target="_blank" rel="noopener noreferrer">
-              <button>
-                <span>
-                  <i class="far fa-window-restore"></i>
-                  <span>
-                    Live Site
-                  </span>
-                </span>
-              </button>
-            </a>
-            <a href="#" target="_blank"
-              rel="noopener noreferrer">
-              <button>
-                <span>
-                  <i class="fab fa-github"></i>
-                  <span>
-                    Repo Link
-                  </span>
-                </span>
-              </button>
+            <a href="./projects/Gadisa Teka - Resume.pdf" download class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition hover-glow">
+              <i class="fas fa-download mr-2"></i> Download Resume
             </a>
           </div>
         </div>
-
-
-        <div class="project-card">
-          <div class="project-img">
-            <img src="./projects/project-4.jpg" loading="lazy" alt="weather-app project">
-          </div>
-          <div>
-            <h2>Ecommerce System</h2>
-            <h3>Status - In Progress</h3>
-            <div class="title">Tech Used - Django, HTML5, CSS, JavaScript and Bootstrap 4</div>
-          </div>
-          <div class="colorband"></div>
-          <div class="desc">Ecommerce System for Electronics Shop. 
-          </div>
-          <div class="actions">
-            <a href="https://et-online-shop.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <button>
-                <span>
-                  <i class="far fa-window-restore"></i>
-                  <span>
-                    Live Site
-                  </span>
-                </span>
-              </button>
-            </a>
-            <a href="https://github.com/hinsoo12" target="_blank" rel="noopener noreferrer">
-              <button>
-                <span>
-                  <i class="fab fa-github"></i>
-                  <span>
-                    Repo Link
-                  </span>
-                </span>
-              </button>
-            </a>
-          </div>
-        </div>
-
       </div>
-  </section>
-  <!-- end of projects -->
-  <!-- skills -->
-  <section class="section skills" id="skills">
-    <!-- section title -->
-    <div class="section-title">
-      <h2>skills</h2>
-      <div class="underline"></div>
-    </div>
-    <!--end of section title -->
-    <div class="section-center skills-center">
-      <article>
-        <h3>Languages</h3>
-        <div class="skill-box-2">
-          <div>
-            <img class="skill-icn" src="./logos/python.svg" loading="lazy" alt="python">
-            <p class="skill-name">Python</p>
-          </div>
-          <div>
-            <img class="skill-icn" src="./logos/java.svg" loading="lazy" alt="java">
-            <p class="skill-name">Java</p>
-          </div>
-          <div>
-            <img class="skill-icn" src="./logos/javascript.svg" loading="lazy" alt="javascript">
-            <p class="skill-name">Javascript</p>
-          </div>
-          <div>
-            <img class="skill-icn" src="./logos/html-5.svg" loading="lazy" alt="html-5">
-            <p class="skill-name">HTML-5</p>
-          </div>
-          <div>
-            <img class="skill-icn" src="./logos/css-3.svg" loading="lazy" alt="css-3">
-            <p class="skill-name">CSS-3</p>
-          </div>
-        </div>
-      </article>
-      <article>
-        <h3>Technologies and Frameworks</h3>
-        <div class="skill-box-2">
-          <div>
-            <img class="skill-icn" src="./logos/django.svg" loading="lazy" alt="django">
-            <p class="skill-name">Django</p>
-          </div>
-          <div>
-            <img class="skill-icn" src="./logos/spring-3.svg" loading="lazy" alt="django">
-            <p class="skill-name">Spring Boot</p>
-          </div>
-          <div>
-            <img class="skill-icn" src="./logos/angular.svg" loading="lazy" alt="angular">
-            <p class="skill-name">Angular js</p>
-          </div>
-
-        </div>
-      </article>
-      <article>
-        <h3>Tools</h3>
-        <div class="skill-box-3">
-          <div>
-            <img class="skill-icn" src="./logos/vscode.svg" loading="lazy" alt="vscode">
-            <p class="skill-name">Vs code</p>
-          </div>
-          <div>
-            <img class="skill-icn" src="./logos/git.svg" loading="lazy" alt="git">
-            <p class="skill-name">Git</p>
-          </div>
-          <div>
-            <img class="skill-icn" src="./logos/figma.svg" loading="lazy" alt="figma">
-            <p class="skill-name">Figma</p>
-          </div>
-          <div>
-            <img class="skill-icn" src="./logos/adobe-photoshop.svg" loading="lazy" alt="photoshop">
-            <p class="skill-name">Adobe Photoshop CC</p>
-          </div>
-          <div>
-            <img class="skill-icn" src="./logos/canva.svg" loading="lazy" alt="canva">
-            <p class="skill-name">Canva</p>
-          </div>
-        </div>
-      </article>
-    </div>
-  </section>
-  <!-- end of skills -->
-
-  <!-- contact form -->
- 
-  <section class="section contact" id="contact">
-    <div class="section-center about-center">
-      <!-- about img -->
-      
-      <article class="about-img">
-        <img src="./images/g-contact.png" class="hero-photo" loading="lazy" alt="garv nanwani" />
-      </article>
-      <!-- about info -->
-      <article class="about-info">
-        <!-- section title -->
-        <div class="contact-title">
-          <h2>Contact Me</h2>
-          <div class="underline"></div>
-        </div>
-        <!--end of section title -->
-        <form id="contact-form" class="contact-form">
-          <input type="text" placeholder="Your name" id="contact-name" class="contact-input">
-          <input type="email" placeholder="Your email" id="contact-email" class="contact-input">
-          <textarea placeholder="Message" id="contact-message" class="contact-input"></textarea>
-        </form>
-        <button class="btn primary-text">Send Message</button>
-      </article>
     </div>
   </section>
 
-  <!-- footer -->
-  <footer class="footer" id="connect">
-    <p>&copy; <span id="date"></span> Gadisa Teka(Ilma Ayu). All rights reserved.
-    </p>
+  <!-- Projects -->
+  <section id="projects" class="py-24 section-animate">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Featured Projects</h2>
+      <p class="text-center text-gray-400 mb-12">Here are some of my recent projects that showcase my skills and experience</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- API Development -->
+        <div class="glass rounded-2xl p-6 transform hover:scale-105 transition duration-300 hover-glow">
+          <div class="bg-gray-200/20 rounded-lg h-48 flex items-center justify-center mb-4">
+            <i class="text-gray-400 text-3xl">
+              <img src="./projects/api.jpg" alt="API Development">
+            </i>
+          </div>
+          <p class="text-gray-300 mb-4">Developed APIs for payment integration, remittance, and third-party bill payments for banking systems, improving transaction efficiency by 30%.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-yellow-400">WSO2</span>
+            <span class="text-yellow-400">Spring Boot</span>
+          </div>
+          <div class="flex space-x-4">
+            <a href="./projects/Gadisa Teka - Resume.pdf" download class="text-blue-400 hover:text-blue-300 flex items-center">
+              <i class="fas fa-download mr-2"></i> View My Resume
+            </a>
+            <a href="https://github.com/hinsoo12" class="text-blue-400 hover:text-blue-300 flex items-center">
+              <i class="fab fa-github mr-1"></i> My Github
+            </a>
+          </div>
+        </div>
+        <!-- Tubolare Trading -->
+        <div class="glass rounded-2xl p-6 transform hover:scale-105 transition duration-300 hover-glow">
+          <div class="bg-gray-200/20 rounded-lg h-48 flex items-center justify-center mb-4">
+            <i class="text-gray-400 text-3xl">
+              <img src="./projects/awi.png" alt="API Development">
+            </i>
+          </div>
+          <h2 class="text-2xl">Awi Auto Spare Parts</h2>
+          <p class="text-gray-300 mb-4">A professional WordPress site for a trading company, built with Elementor, enhancing online presence by 40%.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-yellow-400">WordPress</span>
+            <span class="text-yellow-400">Elementor</span>
+          </div>
+          <div class="flex space-x-4">
+            <a href="https://tubolaretrading.com/" target="_blank" class="text-blue-400 hover:text-blue-300 flex items-center">
+              <i class="fas fa-external-link-alt mr-1"></i> Demo
+            </a>
+          </div>
+        </div>
+        <!-- Hinsoo -->
+        <div class="glass rounded-2xl p-6 transform hover:scale-105 transition duration-300 hover-glow">
+          <div class="bg-gray-200/20 rounded-lg h-48 flex items-center justify-center mb-4">
+            <i class="text-gray-400 text-3xl">
+              <img src="./projects/hinsoo.png" alt="API Development">
+            </i>
+          </div>
+          <h2 class="text-2xl">Hinsoo Tech</h2>
+          <p class="text-gray-300 mb-4">A responsive WordPress business site designed for optimal user experience, increasing client engagement by 35%.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-yellow-400">WordPress</span>
+            <span class="text-yellow-400">Elementor</span>
+          </div>
+          <div class="flex space-x-4">
+            <a href="https://hinsoo.com/" target="_blank" class="text-blue-400 hover:text-blue-300 flex items-center">
+              <i class="fas fa-external-link-alt mr-1"></i> Demo
+            </a>
+          </div>
+        </div>
+        <!-- Tubolare Trading -->
+        <div class="glass rounded-2xl p-6 transform hover:scale-105 transition duration-300 hover-glow">
+          <div class="bg-gray-200/20 rounded-lg h-48 flex items-center justify-center mb-4">
+            <i class="text-gray-400 text-3xl">
+              <img src="./projects/tubolare.png" alt="API Development">
+            </i>
+          </div>
+          <p class="text-gray-300 mb-4">A WordPress site for a client using Elementor, improving content reach by 50%.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-yellow-400">WordPress</span>
+            <span class="text-yellow-400">Elementor</span>
+          </div>
+          <div class="flex space-x-4">
+            <a href="https://tubolaretrading.com/" target="_blank" class="text-blue-400 hover:text-blue-300 flex items-center">
+              <i class="fas fa-external-link-alt mr-1"></i> Demo
+            </a>
+          </div>
+        </div>
+        <!-- AlphaCare HMS -->
+        <div class="glass rounded-2xl p-6 transform hover:scale-105 transition duration-300 hover-glow">
+          <div class="bg-gray-200/20 rounded-lg h-48 flex items-center justify-center mb-4">
+            <i class="text-gray-400 text-3xl">
+              <img src="./projects/hms.png" alt="API Development">
+            </i>
+          </div>
+          <p class="text-gray-300 mb-4">A modern hospital management system with real-time data and intuitive UI, streamlining operations by 25%.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-yellow-400">Spring Boot</span>
+            <span class="text-yellow-400">PostgreSQL</span>
+            <span class="text-yellow-400">React</span>
+            <span class="text-yellow-400">shadcn-ui</span>
+            <span class="text-yellow-400">Tailwind CSS</span>
+          </div>
+        </div>
+        <!-- Inventory POS -->
+        <div class="glass rounded-2xl p-6 transform hover:scale-105 transition duration-300 hover-glow">
+          <div class="bg-gray-200/20 rounded-lg h-48 flex items-center justify-center mb-4">
+            <i class="text-gray-400 text-3xl">
+              <img src="./projects/POS.png" alt="API Development">
+            </i>
+          </div>
+          <p class="text-gray-300 mb-4">Efficient inventory tracking and point-of-sale system for businesses, reducing processing time by 20%.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-yellow-400">Spring Boot</span>
+            <span class="text-yellow-400">PostgreSQL</span>
+            <span class="text-yellow-400">React</span>
+            <span class="text-yellow-400">shadcn-ui</span>
+            <span class="text-yellow-400">Tailwind CSS</span>
+          </div>
+        </div>
+        <!-- Ecommerce System -->
+        <div class="glass rounded-2xl p-6 transform hover:scale-105 transition duration-300 hover-glow">
+          <div class="bg-gray-200/20 rounded-lg h-48 flex items-center justify-center mb-4">
+            <i class="text-gray-400 text-3xl">
+              <img src="./projects/project-4.jpg" alt="API Development">
+            </i>
+          </div>
+          <p class="text-gray-300 mb-4">An electronics shop ecommerce system (In Progress), enhancing user shopping experience.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="text-yellow-400">Django</span>
+            <span class="text-yellow-400">HTML5</span>
+            <span class="text-yellow-400">CSS</span>
+            <span class="text-yellow-400">JavaScript</span>
+            <span class="text-yellow-400">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-24 section-animate">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Skills & Expertise</h2>
+      <p class="text-center text-gray-400 mb-12">A comprehensive overview of my technical skills and proficiency levels</p>
+      <div class="glass p-8 rounded-2xl hover-glow">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Skills Chart -->
+          <div class="relative">
+            <div id="skills-chart" class="h-80 md:h-96"></div>
+            <div id="skills-fallback" class="hidden text-center text-gray-400 mt-4">
+              <p>Skills chart failed to load. Here are my key skills:</p>
+              <ul class="list-disc list-inside mt-4 text-left max-w-md mx-auto">
+                <li>Spring Boot: 90%</li>
+                <li>React: 85%</li>
+                <li>Django: 80%</li>
+                <li>PostgreSQL: 85%</li>
+                <li>WSO2: 70%</li>
+                <li>WordPress: 75%</li>
+                <li>JavaScript: 80%</li>
+                <li>Tailwind CSS: 70%</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Skills List with Icons -->
+          <div class="flex flex-col justify-center">
+            <h3 class="text-2xl font-semibold mb-6 gradient-text">Technical Proficiencies</h3>
+            <div class="grid grid-cols-2 gap-4">
+              <div class="flex items-center space-x-3 p-3 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition hover-glow skill-item">
+                <i class="fab fa-java text-purple-400 text-xl"></i>
+                <span>Spring Boot</span>
+              </div>
+              <div class="flex items-center space-x-3 p-3 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition hover-glow skill-item">
+                <i class="fab fa-react text-purple-400 text-xl"></i>
+                <span>React</span>
+              </div>
+              <div class="flex items-center space-x-3 p-3 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition hover-glow skill-item">
+                <i class="fab fa-python text-purple-400 text-xl"></i>
+                <span>Django</span>
+              </div>
+              <div class="flex items-center space-x-3 p-3 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition hover-glow skill-item">
+                <i class="fas fa-database text-purple-400 text-xl"></i>
+                <span>PostgreSQL</span>
+              </div>
+              <div class="flex items-center space-x-3 p-3 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition hover-glow skill-item">
+                <i class="fas fa-server text-purple-400 text-xl"></i>
+                <span>WSO2</span>
+              </div>
+              <div class="flex items-center space-x-3 p-3 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition hover-glow skill-item">
+                <i class="fab fa-wordpress text-purple-400 text-xl"></i>
+                <span>WordPress</span>
+              </div>
+              <div class="flex items-center space-x-3 p-3 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition hover-glow skill-item">
+                <i class="fab fa-js text-purple-400 text-xl"></i>
+                <span>JavaScript</span>
+              </div>
+              <div class="flex items-center space-x-3 p-3 rounded-lg bg-gray-800/30 hover:bg-gray-800/50 transition hover-glow skill-item">
+                <i class="fab fa-css3-alt text-purple-400 text-xl"></i>
+                <span>Tailwind CSS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 section-animate">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-center mb-4 gradient-text">Contact Me</h2>
+      <p class="text-center text-gray-400 mb-12">Let's collaborate on your next project!</p>
+      <div class="glass p-10 rounded-2xl hover-glow">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2 text-center">
+            <p class="mb-6 text-lg">I'm excited to work on innovative projects. Reach out to discuss opportunities!</p>
+            <ul class="flex justify-center space-x-8 mb-6">
+              <li><a href="https://twitter.com/ilma8ayu" target="_blank" class="text-blue-400 hover:text-blue-300 hover-glow"><i class="fab fa-twitter fa-2x"></i></a></li>
+              <li><a href="https://www.linkedin.com/in/gadisa-t-b7879519b/" target="_blank" class="text-blue-400 hover:text-blue-300 hover-glow"><i class="fab fa-linkedin fa-2x"></i></a></li>
+              <li><a href="https://github.com/hinsoo12" target="_blank" class="text-blue-400 hover:text-blue-300 hover-glow"><i class="fab fa-github fa-2x"></i></a></li>
+              <li><a href="https://www.instagram.com/ilma8ayu/" target="_blank" class="text-blue-400 hover:text-blue-300 hover-glow"><i class="fab fa-instagram fa-2x"></i></a></li>
+            </ul>
+            <a href="https://www.linkedin.com/in/gadisa-t-b7879519b/" target="_blank" class="inline-block bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition hover-glow">
+              <i class="fab fa-linkedin mr-2"></i> Connect on LinkedIn
+            </a>
+          </div>
+          <form id="contact-form" class="md:w-1/2 space-y-6">
+            <input type="text" id="contact-name" placeholder="Your Name" class="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition" aria-label="Your Name">
+            <input type="email" id="contact-email" placeholder="Your Email" class="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition" aria-label="Your Email">
+            <textarea id="contact-message" placeholder="Your Message" rows="5" class="w-full p-4 rounded-lg bg-gray-800/50 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-500 transition" aria-label="Your Message"></textarea>
+            <button type="submit" class="bg-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-purple-700 transition hover-glow w-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-gray-300">© <span id="date"></span> Gadisa Teka. All rights reserved.</p>
+    </div>
   </footer>
 
-  <script async src="./js/app.js"></script>
-</body>
+  <script>
+    // Ensure React and Recharts are loaded
+    if (typeof React === 'undefined' || typeof Recharts === 'undefined') {
+      console.error('React or Recharts failed to load. Please check the CDN links.');
+    }
 
+    // Navbar Toggle
+    const navBtn = document.getElementById('nav-btn');
+    const closeBtn = document.getElementById('close-btn');
+    const sidebar = document.getElementById('sidebar');
+
+    navBtn.addEventListener('click', () => {
+      sidebar.classList.remove('-translate-x-full');
+    });
+
+    closeBtn.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+        if (!sidebar.classList.contains('-translate-x-full')) {
+          sidebar.classList.add('-translate-x-full');
+        }
+      });
+    });
+
+    // Typewriter Effect
+    const typed = new Typed('#typed', {
+      strings: ['Full Stack Developer', 'API Specialist', 'Solution Architect'],
+      typeSpeed: 60,
+      backSpeed: 40,
+      loop: true
+    });
+
+    // Scroll Animations
+    const sections = document.querySelectorAll('.section-animate');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          entry.target.classList.remove('opacity-0', 'translate-y-12');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      section.classList.add('opacity-0', 'translate-y-12', 'transition', 'duration-700', 'ease-out');
+      observer.observe(section);
+    });
+
+    // Skills Chart with Recharts
+    const skillsData = [
+      { name: 'Spring Boot', proficiency: 90 },
+      { name: 'React', proficiency: 85 },
+      { name: 'Django', proficiency: 80 },
+      { name: 'PostgreSQL', proficiency: 85 },
+      { name: 'WSO2', proficiency: 70 },
+      { name: 'WordPress', proficiency: 75 },
+      { name: 'JavaScript', proficiency: 80 },
+      { name: 'Tailwind CSS', proficiency: 70 }
+    ];
+
+    const renderSkillsChart = () => {
+      try {
+        const { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } = Recharts;
+
+        ReactDOM.render(
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart
+              data={skillsData}
+              layout="vertical"
+              margin={{ top: 20, right: 30, left: 10, bottom: 5 }}
+            >
+              <CartesianGrid stroke="#2D3748" strokeOpacity={0.3} />
+              <XAxis
+                type="number"
+                stroke="#D1D5DB"
+                tick={{ fill: '#D1D5DB' }}
+                domain={[0, 100]}
+                tickFormatter={(value) => `${value}%`}
+              />
+              <YAxis
+                type="category"
+                dataKey="name"
+                stroke="#D1D5DB"
+                tick={{ fill: '#D1D5DB' }}
+                width={100}
+              />
+              <Tooltip
+                contentStyle={{
+                  background: 'rgba(31, 31, 31, 0.9)',
+                  border: 'none',
+                  borderRadius: '8px',
+                  color: '#fff',
+                  padding: '10px',
+                }}
+                formatter={(value) => `${value}%`}
+              />
+              <Bar
+                dataKey="proficiency"
+                fill="url(#gradientFill)"
+                radius={[4, 4, 4, 4]}
+                barSize={20}
+                animationDuration={1000}
+              />
+              <defs>
+                <linearGradient id="gradientFill" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stopColor="#7C3AED" />
+                  <stop offset="100%" stopColor="#60A5FA" />
+                </linearGradient>
+              </defs>
+            </BarChart>
+          </ResponsiveContainer>,
+          document.getElementById('skills-chart')
+        );
+      } catch (error) {
+        console.error('Error rendering skills chart:', error);
+        document.getElementById('skills-fallback').classList.remove('hidden');
+      }
+    };
+
+    // Ensure the chart renders after the DOM is loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSkillsChart();
+    });
+
+    // Contact Form Validation
+    const contactForm = document.getElementById('contact-form');
+    contactForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
+
+      if (name && email && message) {
+        alert('Message sent! (Demo alert; integrate with a backend for functionality.)');
+        contactForm.reset();
+      } else {
+        alert('Please fill in all fields.');
+      }
+    });
+
+    // Set Year
+    document.getElementById('date').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
